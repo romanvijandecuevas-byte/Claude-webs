@@ -14,6 +14,9 @@
   --border: 217 25% 20%;
   --input: 217 25% 20%;
   --ring: 199 95% 60%;
+  /* Primary buttons: white on the dark board */
+  --cta: 0 0% 100%;
+  --cta-foreground: 222 47% 7%;
   --radius: 0.75rem;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -74,6 +77,8 @@
   --primary-foreground: 0 0% 100%;
   --accent: 207 90% 54%;
   --ring: 207 90% 54%;
+  --cta: var(--primary);
+  --cta-foreground: var(--primary-foreground);
 
   --pui-fg-mute: #7a94ad;
   --pui-grad-from: #2196f3;
@@ -211,6 +216,8 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-cta: hsl(var(--cta));
+  --color-cta-foreground: hsl(var(--cta-foreground));
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);

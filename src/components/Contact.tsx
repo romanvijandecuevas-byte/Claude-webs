@@ -20,11 +20,11 @@ export function Contact() {
         <div className="mt-6 grid sm:grid-cols-2 gap-3">
           <a href={`mailto:${email}`} className="liquid-glass rounded-xl px-6 py-5 hover:-translate-y-0.5 transition-transform">
             <span className="block text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground">Correo</span>
-            <span className="block mt-1 text-lg text-primary">{email}</span>
+            <span className="block mt-1 text-lg text-foreground">{email}</span>
           </a>
           <a href={`tel:+34${phone.replace(/\s/g, "")}`} className="liquid-glass rounded-xl px-6 py-5 hover:-translate-y-0.5 transition-transform">
             <span className="block text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground">Teléfono</span>
-            <span className="block mt-1 text-lg text-primary">{phone}</span>
+            <span className="block mt-1 text-lg text-foreground">{phone}</span>
           </a>
         </div>
       </div>

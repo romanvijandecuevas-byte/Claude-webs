@@ -57,18 +57,15 @@ export function Services() {
 
       <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {visible.map((s) => (
-          <a key={s.code} href="#contacto" className="liquid-glass rounded-xl p-4 flex flex-col hover:-translate-y-0.5 transition-transform">
+          <div key={s.code} className="liquid-glass rounded-xl p-4 flex flex-col">
             <div className="flex items-center justify-between text-[0.65rem] text-muted-foreground">
               <span className="tracking-[0.1em]">{s.code}</span>
               <span className="font-medium text-foreground">{s.price}</span>
             </div>
             <h3 className="mt-2 text-base text-foreground leading-snug">{s.title}</h3>
             <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{s.body}</p>
-            <div className="mt-auto pt-3 flex items-center justify-between text-[0.7rem] text-muted-foreground">
-              <span>{s.time}</span>
-              <span className="text-primary">Hablemos →</span>
-            </div>
-          </a>
+            <div className="mt-auto pt-3 text-[0.7rem] text-muted-foreground">{s.time}</div>
+          </div>
         ))}
       </div>
       <p className="mt-4 text-xs text-muted-foreground">
