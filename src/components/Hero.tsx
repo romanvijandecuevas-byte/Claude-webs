@@ -7,7 +7,7 @@ const industries = ["concesionarios", "clínicas", "gestorías", "distribuidoras
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 pt-14 pb-10">
+    <section id="top" className="relative overflow-hidden px-5 sm:px-6 pt-10 sm:pt-14 pb-10">
       <Aurora animated blobs={palette.heroBlobs} blur={70} />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">

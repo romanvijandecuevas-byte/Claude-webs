@@ -24,7 +24,7 @@ const steps = [
 
 export function Method() {
   return (
-    <section id="metodo" className="scroll-mt-20 relative overflow-hidden px-6 py-14">
+    <section id="metodo" className="scroll-mt-20 relative overflow-hidden px-6 py-12 sm:py-14">
       <NodeGraphBackground
         density={42}
         speed={0.22}

@@ -6,7 +6,7 @@ const email = "info@zero.es"
 
 export function Contact() {
   return (
-    <section id="contacto" className="scroll-mt-20 relative overflow-hidden px-6 py-14">
+    <section id="contacto" className="scroll-mt-20 relative overflow-hidden px-6 py-12 sm:py-14">
       <Aurora blobs={palette.contactBlobs} blur={80} />
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <EyebrowPill icon={false}>04 · Hablemos</EyebrowPill>

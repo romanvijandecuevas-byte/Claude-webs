@@ -1,4 +1,5 @@
 import { EyebrowPill } from "performative-ui"
+import { ChipMobile } from "@/components/ChipMobile"
 import { palette } from "@/theme"
 
 // Everything the page used to say in boxes, wired around one chip.
@@ -89,7 +90,7 @@ function Label({
 
 export function Chip() {
   return (
-    <section id="tesis" className="scroll-mt-20 relative z-10 px-6 py-14">
+    <section id="tesis" className="scroll-mt-20 relative z-10 px-5 sm:px-6 py-12 sm:py-14">
       <div className="max-w-6xl mx-auto text-center">
         <EyebrowPill statusColor={palette.accent}>01 · Nuestra tesis</EyebrowPill>
         <h2 className="mt-3 text-2xl sm:text-3xl text-foreground" style={{ fontFamily: "var(--font-display)" }}>
@@ -100,8 +101,12 @@ export function Chip() {
         </p>
       </div>
 
-      <div className="mt-6 overflow-x-auto">
-        <svg viewBox={`0 0 ${W} ${H}`} className="mx-auto w-full max-w-6xl min-w-[880px]" role="img" aria-label="Chip zero_: problemas del negocio entran por la izquierda, resultados salen por la derecha; garantías y protección de datos conectadas arriba y abajo.">
+      {/* Phones get a portrait layout; the wide drawing needs ~880px to stay legible. */}
+      <div className="mt-6 md:hidden">
+        <ChipMobile />
+      </div>
+      <div className="mt-6 hidden md:block">
+        <svg viewBox={`0 0 ${W} ${H}`} className="mx-auto w-full max-w-6xl" role="img" aria-label="Chip zero_: problemas del negocio entran por la izquierda, resultados salen por la derecha; garantías y protección de datos conectadas arriba y abajo.">
           {/* traces */}
           {inputs.map((_, i) => (
             <Trace key={`in${i}`} d={hPath(290, leftY[i], chip.x, leftPinY[i])} delay={i * 0.45} />
