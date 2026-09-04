@@ -1,3 +1,5 @@
+import { NodeGraphBackground } from "performative-ui"
+
 const steps = [
   {
     num: "01",
@@ -21,7 +23,16 @@ const steps = [
 
 export function Method() {
   return (
-    <section id="metodo" className="relative z-10 px-6 py-28 max-w-6xl mx-auto">
+    <section id="metodo" className="relative overflow-hidden px-6 py-28">
+      <NodeGraphBackground
+        density={42}
+        speed={0.22}
+        linkDistance={150}
+        colors={["rgba(204, 120, 92, 0.9)", "rgba(176, 150, 122, 0.9)"]}
+        linkColor="rgba(204, 120, 92, 0.28)"
+        baseOpacity={0.32}
+      />
+      <div className="relative z-10 max-w-6xl mx-auto">
       <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
         03 · Cómo trabajamos
       </span>
@@ -45,6 +56,7 @@ export function Method() {
             </p>
           </div>
         ))}
+      </div>
       </div>
     </section>
   )

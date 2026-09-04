@@ -83,44 +83,6 @@ body {
   animation: fade-rise 0.8s ease-out 0.4s both;
 }
 
-/* Ambient animated background blobs */
-@keyframes drift-a {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(6%, 8%) scale(1.1);
-  }
-}
-@keyframes drift-b {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-8%, 6%) scale(1.15);
-  }
-}
-@keyframes drift-c {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(5%, -7%) scale(1.05);
-  }
-}
-.animate-drift-a {
-  animation: drift-a 22s ease-in-out infinite;
-}
-.animate-drift-b {
-  animation: drift-b 26s ease-in-out infinite;
-}
-.animate-drift-c {
-  animation: drift-c 19s ease-in-out infinite;
-}
-
 /* Traveling dot along a flow connector, used in the hero diagram */
 @keyframes travel {
   from {
@@ -146,9 +108,6 @@ body {
   .animate-fade-rise,
   .animate-fade-rise-delay,
   .animate-fade-rise-delay-2,
-  .animate-drift-a,
-  .animate-drift-b,
-  .animate-drift-c,
   .animate-travel {
     animation: none;
   }

@@ -1,11 +1,23 @@
+import { Aurora, WordRoll } from "performative-ui"
 import { Button } from "@/components/ui/button"
 
 const inputs = ["Llamadas", "WhatsApp", "Correo", "ERP / Excel"]
 const outputs = ["Cita agendada", "Lead calificado", "Dato en CRM", "Alerta enviada"]
+const industries = ["concesionarios", "clínicas", "gestorías", "distribuidoras", "hoteles"]
+
+// Module-level so the reference is stable: Aurora restarts its
+// lava-lamp simulation whenever this array identity changes.
+const heroBlobs = [
+  { color: "rgba(204, 120, 92, 0.38)", x: 18, y: 28, size: 62 },
+  { color: "rgba(236, 178, 134, 0.34)", x: 82, y: 22, size: 52 },
+  { color: "rgba(214, 190, 164, 0.40)", x: 52, y: 84, size: 56 },
+]
 
 export function Hero() {
   return (
-    <section id="top" className="relative px-6 pt-20 pb-24">
+    <section id="top" className="relative overflow-hidden px-6 pt-20 pb-24">
+      <Aurora animated blobs={heroBlobs} blur={70} />
+
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
         <span className="animate-fade-rise liquid-glass rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
           Soluciones a medida · precio cerrado
@@ -36,8 +48,17 @@ export function Hero() {
           </Button>
         </div>
 
+        <p className="animate-fade-rise-delay-2 mt-8 text-sm text-muted-foreground">
+          Lo aplicamos en{" "}
+          <WordRoll
+            words={industries}
+            intervalMs={2600}
+            className="text-primary font-medium"
+          />
+        </p>
+
         {/* Live data flow diagram, adapted from the original Zero template */}
-        <div className="animate-fade-rise-delay-2 liquid-glass mt-16 w-full max-w-3xl rounded-2xl p-6 sm:p-8">
+        <div className="animate-fade-rise-delay-2 liquid-glass mt-14 w-full max-w-3xl rounded-2xl p-6 sm:p-8">
           <p className="text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground text-left">
             Flujo de negocio · en tiempo real
           </p>

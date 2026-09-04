@@ -1,5 +1,11 @@
 import { type FormEvent, useState } from "react"
+import { Aurora } from "performative-ui"
 import { Button } from "@/components/ui/button"
+
+const contactBlobs = [
+  { color: "rgba(204, 120, 92, 0.30)", x: 15, y: 70, size: 60 },
+  { color: "rgba(236, 178, 134, 0.28)", x: 85, y: 30, size: 55 },
+]
 
 export function Contact() {
   const [status, setStatus] = useState("")
@@ -21,8 +27,9 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="relative z-10 px-6 py-28 max-w-4xl mx-auto">
-      <div className="liquid-glass rounded-2xl p-8 sm:p-12 text-center">
+    <section id="contacto" className="relative overflow-hidden px-6 py-28">
+      <Aurora blobs={contactBlobs} blur={80} />
+      <div className="relative z-10 liquid-glass max-w-4xl mx-auto rounded-2xl p-8 sm:p-12 text-center">
         <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
           07 · Hablemos
         </span>
