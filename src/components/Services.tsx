@@ -26,7 +26,7 @@ export function Services() {
   const visible = services.filter((s) => filter === "all" || s.category === filter)
 
   return (
-    <section id="soluciones" className="relative z-10 px-6 py-14 max-w-6xl mx-auto">
+    <section id="soluciones" className="scroll-mt-20 relative z-10 px-6 py-14 max-w-6xl mx-auto">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <EyebrowPill icon={false}>02 · Catálogo de soluciones</EyebrowPill>

@@ -2,54 +2,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap");
 
 :root {
-  /* Soft, warm palette in the spirit of Claude's own UI */
-  --background: 40 33% 96%;
-  --foreground: 20 14% 15%;
-  --muted-foreground: 30 8% 42%;
-  --primary: 15 55% 55%;
-  --primary-foreground: 40 40% 98%;
-  --secondary: 35 25% 91%;
-  --muted: 35 25% 91%;
-  --accent: 15 55% 55%;
-  --border: 30 15% 84%;
-  --input: 30 15% 84%;
-  --ring: 15 55% 55%;
+  /* Electric light blue on a dark board */
+  --background: 222 47% 7%;
+  --foreground: 210 40% 96%;
+  --muted-foreground: 215 20% 65%;
+  --primary: 199 95% 60%;
+  --primary-foreground: 222 47% 7%;
+  --secondary: 217 33% 14%;
+  --muted: 217 33% 14%;
+  --accent: 199 95% 60%;
+  --border: 217 25% 20%;
+  --input: 217 25% 20%;
+  --ring: 199 95% 60%;
   --radius: 0.75rem;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Inter", sans-serif;
 
-  /* Retheme performative-ui to the same warm palette. The library reads
-     these variables everywhere, so this is the whole theming step. */
-  --pui-bg: hsl(40 33% 96%);
-  --pui-bg-elev: #ffffff;
-  --pui-bg-soft: hsl(35 25% 91%);
-  --pui-border: hsl(30 15% 84%);
-  --pui-border-bright: hsl(30 15% 76%);
-  --pui-fg: hsl(20 14% 15%);
-  --pui-fg-dim: hsl(30 8% 42%);
-  --pui-fg-mute: hsl(30 8% 58%);
-  --pui-grad-from: #cc785c;
-  --pui-grad-mid: #e0a07a;
-  --pui-grad-to: #d6bea4;
-  --pui-success: #2f8f5b;
-  --pui-warn: #cc785c;
-  --pui-glow: 0 0 24px rgba(204, 120, 92, 0.22);
-  --pui-glow-strong: 0 0 48px rgba(204, 120, 92, 0.28), 0 0 96px rgba(224, 160, 122, 0.16);
-  --pui-glass: rgba(255, 255, 255, 0.85);
-  --pui-glass-deep: rgba(255, 255, 255, 0.78);
-  --pui-glass-soft: rgba(255, 255, 255, 0.55);
-  --pui-overlay: rgba(43, 33, 24, 0.04);
-  --pui-overlay-strong: rgba(43, 33, 24, 0.07);
-  --pui-overlay-bright: rgba(43, 33, 24, 0.12);
+  /* performative-ui reads these everywhere: one place to retheme it. */
+  --pui-bg: #0a0f1c;
+  --pui-bg-elev: #0f172a;
+  --pui-bg-soft: #131c30;
+  --pui-border: #1e293b;
+  --pui-border-bright: #2b3a55;
+  --pui-fg: #f1f5f9;
+  --pui-fg-dim: #94a3b8;
+  --pui-fg-mute: #64748b;
+  --pui-grad-from: #38bdf8;
+  --pui-grad-mid: #22d3ee;
+  --pui-grad-to: #818cf8;
+  --pui-success: #22c55e;
+  --pui-warn: #38bdf8;
+  --pui-glow: 0 0 24px rgba(56, 189, 248, 0.3);
+  --pui-glow-strong: 0 0 48px rgba(56, 189, 248, 0.35), 0 0 96px rgba(34, 211, 238, 0.18);
+  --pui-glass: rgba(15, 23, 42, 0.85);
+  --pui-glass-deep: rgba(15, 23, 42, 0.78);
+  --pui-glass-soft: rgba(15, 23, 42, 0.55);
+  --pui-overlay: rgba(255, 255, 255, 0.04);
+  --pui-overlay-strong: rgba(255, 255, 255, 0.07);
+  --pui-overlay-bright: rgba(255, 255, 255, 0.12);
   --pui-font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --pui-font-serif: "Fraunces", ui-serif, Georgia, serif;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 500;
 }
 
 @theme inline {
@@ -83,43 +76,32 @@ body {
   font-family: var(--font-body);
 }
 
-/* A few performative-ui rules hardcode its purple instead of reading the
-   variables above. Re-point them at the warm accent. */
-.pui-sticky-banner {
-  background: linear-gradient(
-    90deg,
-    rgba(204, 120, 92, 0.1),
-    rgba(224, 160, 122, 0.1),
-    rgba(214, 190, 164, 0.14)
-  );
+h1,
+h2,
+h3 {
+  font-weight: 500;
 }
-.pui-ba__panel--after {
-  border-color: rgba(204, 120, 92, 0.45);
-  box-shadow: 0 0 60px rgba(204, 120, 92, 0.16);
-  background: linear-gradient(180deg, rgba(204, 120, 92, 0.06), var(--pui-bg-elev));
-}
-.pui-ba__panel--before li {
-  text-decoration-color: rgba(43, 33, 24, 0.28);
-}
+
+/* Library rules that hardcode purple instead of reading the variables. */
 @keyframes pui-breathe {
   0%,
   to {
-    box-shadow: 0 0 0 rgba(204, 120, 92, 0);
+    box-shadow: 0 0 0 rgba(56, 189, 248, 0);
   }
   50% {
-    box-shadow: 0 0 40px rgba(204, 120, 92, 0.18);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
   }
 }
 
-/* Soft glass surface, tuned for a light warm background */
+/* Glass surface for the dark board */
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(15, 23, 42, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(43, 33, 24, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.14);
   box-shadow:
-    0 1px 2px rgba(43, 33, 24, 0.03),
-    0 10px 30px rgba(43, 33, 24, 0.05);
+    0 0 0 1px rgba(56, 189, 248, 0.04),
+    0 10px 30px rgba(0, 0, 0, 0.35);
   position: relative;
 }
 
@@ -143,32 +125,35 @@ body {
   animation: fade-rise 0.8s ease-out 0.4s both;
 }
 
-/* Traveling dot along a flow connector, used in the hero diagram */
-@keyframes travel {
-  from {
-    transform: translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
+/* Chip diagram: flowing traces and a breathing core */
+@keyframes trace-flow {
   to {
-    transform: translateX(100%);
-    opacity: 0;
+    stroke-dashoffset: -40;
   }
 }
-.animate-travel {
-  animation: travel 2.4s linear infinite;
+.trace-flow {
+  stroke-dasharray: 8 12;
+  animation: trace-flow 1.4s linear infinite;
+}
+@keyframes chip-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.7));
+  }
+}
+.chip-core {
+  animation: chip-glow 3.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-rise,
   .animate-fade-rise-delay,
   .animate-fade-rise-delay-2,
-  .animate-travel {
+  .trace-flow,
+  .chip-core {
     animation: none;
   }
 }

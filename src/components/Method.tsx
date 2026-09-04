@@ -23,13 +23,13 @@ const steps = [
 
 export function Method() {
   return (
-    <section id="metodo" className="relative overflow-hidden px-6 py-14">
+    <section id="metodo" className="scroll-mt-20 relative overflow-hidden px-6 py-14">
       <NodeGraphBackground
         density={42}
         speed={0.22}
         linkDistance={150}
-        colors={["rgba(204, 120, 92, 0.9)", "rgba(176, 150, 122, 0.9)"]}
-        linkColor="rgba(204, 120, 92, 0.28)"
+        colors={["rgba(56, 189, 248, 0.9)", "rgba(129, 140, 248, 0.9)"]}
+        linkColor="rgba(56, 189, 248, 0.28)"
         baseOpacity={0.32}
       />
       <div className="relative z-10 max-w-6xl mx-auto">
