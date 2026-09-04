@@ -5,7 +5,7 @@ import './index.css'
 import App from './App.tsx'
 import { THEME } from './theme'
 
-document.documentElement.dataset.theme = THEME
+document.documentElement.dataset.zeroTheme = THEME
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
