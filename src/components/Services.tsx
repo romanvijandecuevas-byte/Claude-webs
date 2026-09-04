@@ -31,7 +31,7 @@ export function Services() {
         <div>
           <EyebrowPill icon={false}>02 · Catálogo de soluciones</EyebrowPill>
           <h2 className="mt-3 text-2xl sm:text-3xl max-w-2xl text-foreground" style={{ fontFamily: "var(--font-display)" }}>
-            Nueve puntos de partida. Ninguna solución prefabricada.
+            Nueve puntos de partida. Todo a medida.
           </h2>
         </div>
         <div className="flex flex-wrap items-center gap-2">
