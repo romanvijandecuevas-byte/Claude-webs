@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { EyebrowPill, GlassCard } from "performative-ui"
+import { EyebrowPill } from "performative-ui"
 
 const categories = [
   { id: "all", label: "Todas" },
@@ -26,17 +26,15 @@ export function Services() {
   const visible = services.filter((s) => filter === "all" || s.category === filter)
 
   return (
-    <section id="soluciones" className="relative z-10 px-6 py-24 max-w-6xl mx-auto">
-      <EyebrowPill icon={false}>02 · Catálogo de soluciones</EyebrowPill>
-      <h2
-        className="mt-4 text-3xl sm:text-4xl max-w-2xl text-foreground"
-        style={{ fontFamily: "'Instrument Serif', serif" }}
-      >
-        Nueve puntos de partida. Ninguna solución prefabricada.
-      </h2>
-
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex flex-wrap gap-2">
+    <section id="soluciones" className="relative z-10 px-6 py-14 max-w-6xl mx-auto">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <EyebrowPill icon={false}>02 · Catálogo de soluciones</EyebrowPill>
+          <h2 className="mt-3 text-2xl sm:text-3xl max-w-2xl text-foreground" style={{ fontFamily: "var(--font-display)" }}>
+            Nueve puntos de partida. Ninguna solución prefabricada.
+          </h2>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -44,38 +42,37 @@ export function Services() {
               onClick={() => setFilter(cat.id)}
               className={
                 filter === cat.id
-                  ? "rounded-full px-4 py-1.5 text-xs font-medium bg-primary text-primary-foreground"
-                  : "rounded-full px-4 py-1.5 text-xs font-medium border border-border text-muted-foreground hover:text-foreground transition-colors"
+                  ? "rounded-full px-3 py-1 text-xs font-medium bg-primary text-primary-foreground"
+                  : "rounded-full px-3 py-1 text-xs font-medium border border-border text-muted-foreground hover:text-foreground transition-colors"
               }
             >
               {cat.label}
             </button>
           ))}
+          <span className="ml-1 text-xs text-muted-foreground">
+            {visible.length} {visible.length === 1 ? "solución" : "soluciones"}
+          </span>
         </div>
-        <span className="text-xs text-muted-foreground">
-          {visible.length} {visible.length === 1 ? "solución" : "soluciones"}
-        </span>
       </div>
 
-      <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {visible.map((service) => (
-          <GlassCard key={service.code} glowOnHover className="flex flex-col">
-            <div className="flex items-center justify-between text-xs text-muted-foreground">
-              <span className="tracking-[0.1em]">{service.code}</span>
-              <span>{service.price}</span>
+      <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {visible.map((s) => (
+          <a key={s.code} href="#contacto" className="liquid-glass rounded-xl p-4 flex flex-col hover:-translate-y-0.5 transition-transform">
+            <div className="flex items-center justify-between text-[0.65rem] text-muted-foreground">
+              <span className="tracking-[0.1em]">{s.code}</span>
+              <span className="font-medium text-foreground">{s.price}</span>
             </div>
-            <GlassCard.Title className="mt-6 max-w-[16ch]">{service.title}</GlassCard.Title>
-            <GlassCard.Body>{service.body}</GlassCard.Body>
-            <div className="mt-auto pt-4 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
-              <span>{service.time}</span>
-              <GlassCard.Link href="#contacto">Hablemos →</GlassCard.Link>
+            <h3 className="mt-2 text-base text-foreground leading-snug">{s.title}</h3>
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{s.body}</p>
+            <div className="mt-auto pt-3 flex items-center justify-between text-[0.7rem] text-muted-foreground">
+              <span>{s.time}</span>
+              <span className="text-primary">Hablemos →</span>
             </div>
-          </GlassCard>
+          </a>
         ))}
       </div>
-      <p className="mt-6 text-xs text-muted-foreground max-w-xl">
-        Precios sin IVA y orientativos. El precio final se cierra tras la
-        primera conversación y no cambia después.
+      <p className="mt-4 text-xs text-muted-foreground">
+        Precios sin IVA y orientativos. El precio final se cierra tras la primera conversación y no cambia después.
       </p>
     </section>
   )

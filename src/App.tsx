@@ -9,7 +9,6 @@ import { Method } from "@/components/Method"
 import { Nav } from "@/components/Nav"
 import { Problems } from "@/components/Problems"
 import { Proof } from "@/components/Proof"
-import { Sectors } from "@/components/Sectors"
 import { Services } from "@/components/Services"
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
       <Nav />
       <Hero />
       <Proof />
-      <Sectors />
       <Problems />
       <Services />
       <Method />

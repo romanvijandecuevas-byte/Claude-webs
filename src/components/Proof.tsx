@@ -1,6 +1,6 @@
 import { StatCounter } from "performative-ui"
 
-const serif = { fontFamily: "'Instrument Serif', serif" }
+const serif = { fontFamily: "var(--font-display)" }
 
 export function Proof() {
   const stats = [

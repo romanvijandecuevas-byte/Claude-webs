@@ -9,13 +9,13 @@ const credentials = [
 
 export function About() {
   return (
-    <section id="equipo" className="relative z-10 px-6 py-24 max-w-6xl mx-auto">
+    <section id="equipo" className="relative z-10 px-6 py-14 max-w-6xl mx-auto">
       <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-6 items-stretch">
-        <div className="liquid-glass rounded-3xl p-8 flex flex-col justify-between bg-primary/8">
+        <div className="liquid-glass rounded-3xl p-6 flex flex-col justify-between bg-primary/8">
           <div className="flex items-center gap-3">
             <span
               className="text-2xl text-foreground"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
               zero_
             </span>
@@ -25,8 +25,8 @@ export function About() {
             </span>
           </div>
           <p
-            className="mt-10 text-2xl sm:text-3xl leading-snug text-foreground max-w-[14ch]"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+            className="mt-6 text-2xl sm:text-3xl leading-snug text-foreground max-w-[14ch]"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             Foco de especialista. Respaldo de integrador.
           </p>
@@ -38,8 +38,8 @@ export function About() {
         <div>
           <EyebrowPill icon={false}>06 · Quiénes somos</EyebrowPill>
           <h2
-            className="mt-4 text-3xl sm:text-4xl text-foreground"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+            className="mt-3 text-2xl sm:text-3xl text-foreground"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             Ingenieros que hacen que las cosas funcionen.
           </h2>

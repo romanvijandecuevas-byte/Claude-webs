@@ -27,13 +27,13 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="relative overflow-hidden px-6 py-28">
+    <section id="contacto" className="relative overflow-hidden px-6 py-14">
       <Aurora blobs={contactBlobs} blur={80} />
-      <div className="relative z-10 liquid-glass max-w-4xl mx-auto rounded-2xl p-8 sm:p-12 text-center">
+      <div className="relative z-10 liquid-glass max-w-4xl mx-auto rounded-2xl p-6 sm:p-10 text-center">
         <EyebrowPill icon={false}>07 · Hablemos</EyebrowPill>
         <h2
-          className="mt-4 text-3xl sm:text-4xl text-foreground"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
+          className="mt-3 text-2xl sm:text-3xl text-foreground"
+          style={{ fontFamily: "var(--font-display)" }}
         >
           Cuéntanos qué se te pierde.
         </h2>

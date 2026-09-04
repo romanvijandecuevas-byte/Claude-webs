@@ -23,7 +23,7 @@ const steps = [
 
 export function Method() {
   return (
-    <section id="metodo" className="relative overflow-hidden px-6 py-28">
+    <section id="metodo" className="relative overflow-hidden px-6 py-14">
       <NodeGraphBackground
         density={42}
         speed={0.22}
@@ -35,13 +35,13 @@ export function Method() {
       <div className="relative z-10 max-w-6xl mx-auto">
       <EyebrowPill icon={false}>03 · Cómo trabajamos</EyebrowPill>
       <h2
-        className="mt-4 text-3xl sm:text-4xl max-w-2xl text-foreground"
-        style={{ fontFamily: "'Instrument Serif', serif" }}
+        className="mt-3 text-2xl sm:text-3xl max-w-2xl text-foreground"
+        style={{ fontFamily: "var(--font-display)" }}
       >
         De la primera conversación a una solución funcionando.
       </h2>
 
-      <div className="mt-12 grid sm:grid-cols-3 gap-4">
+      <div className="mt-6 grid sm:grid-cols-3 gap-4">
         {steps.map((step) => (
           <div key={step.num} className="border-t border-border/60 pt-6">
             <div className="flex items-center justify-between text-xs text-muted-foreground">

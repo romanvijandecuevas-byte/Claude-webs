@@ -16,7 +16,7 @@ export function Nav() {
       <a href="#top" className="flex items-baseline gap-3">
         <span
           className="text-3xl tracking-tight text-foreground"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
+          style={{ fontFamily: "var(--font-display)" }}
         >
           zero_
         </span>

@@ -18,7 +18,7 @@ const log =
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 pt-20 pb-24">
+    <section id="top" className="relative overflow-hidden px-6 pt-12 pb-14">
       <Aurora animated blobs={heroBlobs} blur={70} />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
@@ -27,22 +27,19 @@ export function Hero() {
         </EyebrowPill>
 
         <h1
-          className="animate-fade-rise-delay mt-6 text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-5xl font-normal text-foreground"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
+          className="animate-fade-rise-delay mt-5 text-4xl sm:text-6xl md:text-7xl leading-[1] tracking-tight max-w-4xl text-foreground"
+          style={{ fontFamily: "var(--font-display)" }}
         >
-          Software, IA y analítica{" "}
-          <em className="not-italic text-muted-foreground">
-            que encajan en tu negocio.
-          </em>
+          Software, IA y analítica que encajan en tu negocio.
         </h1>
 
-        <p className="animate-fade-rise-delay-2 text-muted-foreground text-base sm:text-lg max-w-2xl mt-8 leading-relaxed">
+        <p className="animate-fade-rise-delay-2 text-muted-foreground text-base sm:text-lg max-w-2xl mt-6 leading-relaxed">
           Diseñamos e implantamos agentes de IA, cuadros de mando e
           integraciones a medida. Sin proyectos que se eternizan ni
           herramientas que nadie termina usando.
         </p>
 
-        <div className="animate-fade-rise-delay-2 flex flex-wrap items-center justify-center gap-4 mt-12">
+        <div className="animate-fade-rise-delay-2 flex flex-wrap items-center justify-center gap-4 mt-8">
           <Button variant="default" size="lg" asChild>
             <a href="#contacto">Cuéntanos tu caso</a>
           </Button>
@@ -51,7 +48,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <p className="animate-fade-rise-delay-2 mt-8 text-sm text-muted-foreground">
+        <p className="animate-fade-rise-delay-2 mt-6 text-sm text-muted-foreground">
           Lo aplicamos en{" "}
           <WordRoll
             words={industries}
@@ -61,7 +58,7 @@ export function Hero() {
         </p>
 
         {/* "Lo que entra → lo que empieza a funcionar", from the original template */}
-        <div className="animate-fade-rise-delay-2 mt-14 w-full max-w-3xl text-left">
+        <div className="animate-fade-rise-delay-2 mt-10 w-full max-w-3xl text-left">
           {/* Composed form: the quick form's arrow label is fixed to English ("with …"). */}
           <BeforeAfter>
             <BeforeAfter.Before label="Lo que entra">

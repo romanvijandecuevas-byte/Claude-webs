@@ -20,13 +20,13 @@ const items = [
 
 export function DataSecurity() {
   return (
-    <section id="datos" className="relative z-10 px-6 py-24 max-w-6xl mx-auto">
+    <section id="datos" className="relative z-10 px-6 py-14 max-w-6xl mx-auto">
       <div className="liquid-glass rounded-3xl grid md:grid-cols-2 overflow-hidden">
-        <div className="p-8 sm:p-10">
+        <div className="p-6 sm:p-8">
           <EyebrowPill icon={false}>05 · Tus datos</EyebrowPill>
           <h2
-            className="mt-4 text-3xl text-foreground max-w-[12ch]"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+            className="mt-3 text-2xl text-foreground max-w-[12ch]"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             La IA no exige perder el control.
           </h2>
@@ -36,7 +36,7 @@ export function DataSecurity() {
           </p>
         </div>
 
-        <div className="p-8 sm:p-10 bg-background/40 border-t md:border-t-0 md:border-l border-border/60">
+        <div className="p-6 sm:p-8 bg-background/40 border-t md:border-t-0 md:border-l border-border/60">
           <div className="flex items-center justify-between pb-3 border-b border-border/60 text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">
             <span>data policy / zero</span>
             <span className="flex items-center gap-2">
