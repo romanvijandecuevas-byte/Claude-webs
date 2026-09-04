@@ -1,4 +1,4 @@
-import { Aurora, WordRoll } from "performative-ui"
+import { Aurora, BeforeAfter, EyebrowPill, Sparkle, TokenStream, WordRoll } from "performative-ui"
 import { Button } from "@/components/ui/button"
 
 const inputs = ["Llamadas", "WhatsApp", "Correo", "ERP / Excel"]
@@ -13,15 +13,18 @@ const heroBlobs = [
   { color: "rgba(214, 190, 164, 0.40)", x: 52, y: 84, size: 56 },
 ]
 
+const log =
+  "09:41:02 pedido_1842 procesado ✓   09:41:05 crm / oportunidad creada ✓   09:41:08 informe / datos actualizados ✓"
+
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-6 pt-20 pb-24">
       <Aurora animated blobs={heroBlobs} blur={70} />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
-        <span className="animate-fade-rise liquid-glass rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
+        <EyebrowPill className="animate-fade-rise" statusColor="hsl(15 55% 55%)">
           Soluciones a medida · precio cerrado
-        </span>
+        </EyebrowPill>
 
         <h1
           className="animate-fade-rise-delay mt-6 text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-5xl font-normal text-foreground"
@@ -57,46 +60,25 @@ export function Hero() {
           />
         </p>
 
-        {/* Live data flow diagram, adapted from the original Zero template */}
-        <div className="animate-fade-rise-delay-2 liquid-glass mt-14 w-full max-w-3xl rounded-2xl p-6 sm:p-8">
-          <p className="text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground text-left">
-            Flujo de negocio · en tiempo real
+        {/* "Lo que entra → lo que empieza a funcionar", from the original template */}
+        <div className="animate-fade-rise-delay-2 mt-14 w-full max-w-3xl text-left">
+          {/* Composed form: the quick form's arrow label is fixed to English ("with …"). */}
+          <BeforeAfter>
+            <BeforeAfter.Before label="Lo que entra">
+              <ul>{inputs.map((item) => <li key={item}>{item}</li>)}</ul>
+            </BeforeAfter.Before>
+            <div className="pui-ba__arrow">
+              <Sparkle />
+              <span>con zero_</span>
+              <span>→</span>
+            </div>
+            <BeforeAfter.After label="Lo que empieza a funcionar">
+              <ul>{outputs.map((item) => <li key={item}>{item}</li>)}</ul>
+            </BeforeAfter.After>
+          </BeforeAfter>
+          <p className="mt-4 px-1 font-mono text-[0.7rem] text-muted-foreground">
+            <TokenStream text={log} speedMs={[40, 110]} loop loopDelayMs={4000} />
           </p>
-          <div className="mt-5 grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6">
-            <div className="grid gap-2">
-              {inputs.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-lg border border-border bg-background/40 px-3 py-2 text-xs sm:text-sm text-foreground text-left"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-col items-center gap-2">
-              <span
-                className="relative h-16 w-16 sm:h-20 sm:w-20 rounded-2xl bg-primary text-primary-foreground grid place-items-center text-center leading-tight"
-                style={{ fontFamily: "'Instrument Serif', serif" }}
-              >
-                <span className="text-lg sm:text-xl">zero_</span>
-              </span>
-              <span className="relative h-px w-10 sm:w-14 bg-border overflow-hidden">
-                <span className="animate-travel absolute inset-y-0 left-0 w-2 rounded-full bg-primary" />
-              </span>
-            </div>
-
-            <div className="grid gap-2">
-              {outputs.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-xs sm:text-sm text-foreground text-left"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

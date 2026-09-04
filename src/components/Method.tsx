@@ -1,4 +1,4 @@
-import { NodeGraphBackground } from "performative-ui"
+import { EyebrowPill, NodeGraphBackground } from "performative-ui"
 
 const steps = [
   {
@@ -33,9 +33,7 @@ export function Method() {
         baseOpacity={0.32}
       />
       <div className="relative z-10 max-w-6xl mx-auto">
-      <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-        03 · Cómo trabajamos
-      </span>
+      <EyebrowPill icon={false}>03 · Cómo trabajamos</EyebrowPill>
       <h2
         className="mt-4 text-3xl sm:text-4xl max-w-2xl text-foreground"
         style={{ fontFamily: "'Instrument Serif', serif" }}

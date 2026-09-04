@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react"
-import { Aurora } from "performative-ui"
+import { Aurora, EyebrowPill } from "performative-ui"
 import { Button } from "@/components/ui/button"
 
 const contactBlobs = [
@@ -30,9 +30,7 @@ export function Contact() {
     <section id="contacto" className="relative overflow-hidden px-6 py-28">
       <Aurora blobs={contactBlobs} blur={80} />
       <div className="relative z-10 liquid-glass max-w-4xl mx-auto rounded-2xl p-8 sm:p-12 text-center">
-        <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-          07 · Hablemos
-        </span>
+        <EyebrowPill icon={false}>07 · Hablemos</EyebrowPill>
         <h2
           className="mt-4 text-3xl sm:text-4xl text-foreground"
           style={{ fontFamily: "'Instrument Serif', serif" }}

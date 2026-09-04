@@ -1,3 +1,5 @@
+import { EyebrowPill } from "performative-ui"
+
 const credentials = [
   { label: "Formación", value: "Ingeniería informática y telecomunicación" },
   { label: "Especialidad", value: "Inteligencia artificial y datos" },
@@ -34,9 +36,7 @@ export function About() {
         </div>
 
         <div>
-          <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-            06 · Quiénes somos
-          </span>
+          <EyebrowPill icon={false}>06 · Quiénes somos</EyebrowPill>
           <h2
             className="mt-4 text-3xl sm:text-4xl text-foreground"
             style={{ fontFamily: "'Instrument Serif', serif" }}

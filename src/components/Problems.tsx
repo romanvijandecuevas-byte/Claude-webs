@@ -1,3 +1,5 @@
+import { EyebrowPill, GlassCard } from "performative-ui"
+
 const problems = [
   {
     index: "01 / GESTIÓN",
@@ -30,9 +32,7 @@ const problems = [
 export function Problems() {
   return (
     <section id="problema" className="relative z-10 px-6 py-24 max-w-6xl mx-auto">
-      <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-        01 · Cuándo llamarnos
-      </span>
+      <EyebrowPill icon={false}>01 · Cuándo llamarnos</EyebrowPill>
       <h2
         className="mt-4 text-3xl sm:text-4xl max-w-2xl text-foreground"
         style={{ fontFamily: "'Instrument Serif', serif" }}
@@ -42,24 +42,18 @@ export function Problems() {
 
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {problems.map((problem) => (
-          <div
+          <GlassCard
             key={problem.index}
-            className={
-              problem.lead
-                ? "liquid-glass rounded-2xl p-6 sm:col-span-2 lg:col-span-1 lg:row-span-2 bg-primary/8"
-                : "liquid-glass rounded-2xl p-6"
-            }
+            glowOnHover
+            breathing={problem.lead}
+            className={problem.lead ? "sm:col-span-2 lg:col-span-1 lg:row-span-2" : undefined}
           >
             <span className="text-xs text-muted-foreground tracking-[0.1em]">
               {problem.index}
             </span>
-            <h3 className="mt-4 text-lg text-foreground max-w-[18ch]">
-              {problem.title}
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              {problem.body}
-            </p>
-          </div>
+            <GlassCard.Title className="mt-4">{problem.title}</GlassCard.Title>
+            <GlassCard.Body>{problem.body}</GlassCard.Body>
+          </GlassCard>
         ))}
       </div>
     </section>

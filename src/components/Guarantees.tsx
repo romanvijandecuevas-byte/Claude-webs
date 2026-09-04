@@ -1,3 +1,5 @@
+import { EyebrowPill, GlassCard } from "performative-ui"
+
 const guarantees = [
   { num: "01", title: "Alcance", body: "Cerrado en una propuesta de una página antes de empezar." },
   { num: "02", title: "Precio", body: "Fijo. No cobramos por horas ni abrimos ampliaciones a mitad del proyecto." },
@@ -10,9 +12,7 @@ const guarantees = [
 export function Guarantees() {
   return (
     <section id="garantias" className="relative z-10 px-6 py-24 max-w-6xl mx-auto">
-      <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-        04 · Ficha del servicio
-      </span>
+      <EyebrowPill icon={false}>04 · Ficha del servicio</EyebrowPill>
       <h2
         className="mt-4 text-3xl sm:text-4xl max-w-2xl text-foreground"
         style={{ fontFamily: "'Instrument Serif', serif" }}
@@ -22,18 +22,13 @@ export function Guarantees() {
 
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {guarantees.map((g) => (
-          <div key={g.num} className="liquid-glass rounded-2xl p-6">
+          <GlassCard key={g.num} glowOnHover>
             <span className="text-xs text-muted-foreground">{g.num}</span>
-            <h3
-              className="mt-2 text-lg text-foreground"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
-            >
+            <GlassCard.Title className="mt-2" style={{ fontFamily: "'Instrument Serif', serif" }}>
               {g.title}
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-              {g.body}
-            </p>
-          </div>
+            </GlassCard.Title>
+            <GlassCard.Body>{g.body}</GlassCard.Body>
+          </GlassCard>
         ))}
       </div>
     </section>
