@@ -1,8 +1,10 @@
-// Build-time theme switch: `VITE_THEME=light npm run build` emits the light
-// variant, anything else emits the dark one. CSS colours live in index.css
-// under [data-theme]; the few colours passed to JS components live here.
-export const THEME: "dark" | "light" =
-  import.meta.env.VITE_THEME === "light" ? "light" : "dark"
+// Build-time theme switch. `VITE_THEME=light-niebla npm run build` (or
+// light-acero / light-marino) emits a light variant; anything else emits
+// the dark one. CSS colours live in index.css under [data-theme]; the few
+// colours passed to JS components live here.
+const requested = import.meta.env.VITE_THEME as string | undefined
+export const THEME: string = requested?.startsWith("light") ? requested : "dark"
+const isLight = THEME !== "dark"
 
 const dark = {
   heroBlobs: [
@@ -34,4 +36,4 @@ const light = {
   accent: "#2196f3",
 }
 
-export const palette = THEME === "light" ? light : dark
+export const palette = isLight ? light : dark
