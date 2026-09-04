@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 const links = [
   { label: "Inicio", href: "#top", active: true },
@@ -38,9 +37,6 @@ export function Nav() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="default" asChild>
-            <a href="#contacto">Hablemos</a>
-          </Button>
           <button
             type="button"
             className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground"
