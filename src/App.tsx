@@ -1,5 +1,7 @@
 import { About } from "@/components/About"
+import { AmbientBackground } from "@/components/AmbientBackground"
 import { Contact } from "@/components/Contact"
+import { DataSecurity } from "@/components/DataSecurity"
 import { Footer } from "@/components/Footer"
 import { Guarantees } from "@/components/Guarantees"
 import { Hero } from "@/components/Hero"
@@ -12,18 +14,20 @@ import { Services } from "@/components/Services"
 function App() {
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 right-0 z-20">
+      <AmbientBackground />
+      <div className="relative z-10">
         <Nav />
+        <Hero />
+        <Proof />
+        <Problems />
+        <Services />
+        <Method />
+        <Guarantees />
+        <DataSecurity />
+        <About />
+        <Contact />
+        <Footer />
       </div>
-      <Hero />
-      <Proof />
-      <Problems />
-      <Services />
-      <Method />
-      <Guarantees />
-      <About />
-      <Contact />
-      <Footer />
     </div>
   )
 }

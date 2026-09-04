@@ -2,17 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap");
 
 :root {
-  --background: 201 100% 13%;
-  --foreground: 0 0% 100%;
-  --muted-foreground: 240 4% 66%;
-  --primary: 0 0% 100%;
-  --primary-foreground: 0 0% 4%;
-  --secondary: 0 0% 10%;
-  --muted: 0 0% 10%;
-  --accent: 0 0% 10%;
-  --border: 0 0% 18%;
-  --input: 0 0% 18%;
-  --ring: 0 0% 18%;
+  /* Soft, warm palette in the spirit of Claude's own UI */
+  --background: 40 33% 96%;
+  --foreground: 20 14% 15%;
+  --muted-foreground: 30 8% 42%;
+  --primary: 15 55% 55%;
+  --primary-foreground: 40 40% 98%;
+  --secondary: 35 25% 91%;
+  --muted: 35 25% 91%;
+  --accent: 15 55% 55%;
+  --border: 30 15% 84%;
+  --input: 30 15% 84%;
+  --ring: 15 55% 55%;
   --radius: 0.75rem;
 
   --font-display: "Instrument Serif", serif;
@@ -50,37 +51,16 @@ body {
   font-family: var(--font-body);
 }
 
+/* Soft glass surface, tuned for a light warm background */
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(43, 33, 24, 0.08);
+  box-shadow:
+    0 1px 2px rgba(43, 33, 24, 0.03),
+    0 10px 30px rgba(43, 33, 24, 0.05);
   position: relative;
-  overflow: hidden;
-}
-.liquid-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0.15) 20%,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0) 60%,
-    rgba(255, 255, 255, 0.15) 80%,
-    rgba(255, 255, 255, 0.45) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
 }
 
 @keyframes fade-rise {
@@ -103,10 +83,73 @@ body {
   animation: fade-rise 0.8s ease-out 0.4s both;
 }
 
+/* Ambient animated background blobs */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6%, 8%) scale(1.1);
+  }
+}
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-8%, 6%) scale(1.15);
+  }
+}
+@keyframes drift-c {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, -7%) scale(1.05);
+  }
+}
+.animate-drift-a {
+  animation: drift-a 22s ease-in-out infinite;
+}
+.animate-drift-b {
+  animation: drift-b 26s ease-in-out infinite;
+}
+.animate-drift-c {
+  animation: drift-c 19s ease-in-out infinite;
+}
+
+/* Traveling dot along a flow connector, used in the hero diagram */
+@keyframes travel {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+.animate-travel {
+  animation: travel 2.4s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-rise,
   .animate-fade-rise-delay,
-  .animate-fade-rise-delay-2 {
+  .animate-fade-rise-delay-2,
+  .animate-drift-a,
+  .animate-drift-b,
+  .animate-drift-c,
+  .animate-travel {
     animation: none;
   }
 }

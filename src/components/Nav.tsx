@@ -5,12 +5,14 @@ const links = [
   { label: "El problema", href: "#problema" },
   { label: "Soluciones", href: "#soluciones" },
   { label: "Método", href: "#metodo" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Garantías", href: "#garantias" },
+  { label: "Equipo", href: "#equipo" },
 ]
 
 export function Nav() {
   return (
-    <nav className="relative z-10 flex flex-row items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+    <header className="sticky top-0 z-20 backdrop-blur-md bg-background/70 border-b border-border/60">
+    <nav className="flex flex-row items-center justify-between px-8 py-5 max-w-7xl mx-auto">
       <a href="#top" className="flex items-baseline gap-3">
         <span
           className="text-3xl tracking-tight text-foreground"
@@ -39,9 +41,10 @@ export function Nav() {
         ))}
       </div>
 
-      <Button variant="glass" asChild>
+      <Button variant="default" asChild>
         <a href="#contacto">Hablemos</a>
       </Button>
     </nav>
+    </header>
   )
 }

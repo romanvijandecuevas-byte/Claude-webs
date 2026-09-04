@@ -24,7 +24,7 @@ export function Contact() {
     <section id="contacto" className="relative z-10 px-6 py-28 max-w-4xl mx-auto">
       <div className="liquid-glass rounded-2xl p-8 sm:p-12 text-center">
         <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-          05 · Hablemos
+          07 · Hablemos
         </span>
         <h2
           className="mt-4 text-3xl sm:text-4xl text-foreground"
@@ -66,7 +66,7 @@ export function Contact() {
             className="sm:col-span-2 liquid-glass rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none resize-none"
           />
           <div className="sm:col-span-2 flex flex-col items-center gap-3 mt-2">
-            <Button type="submit" variant="glass" size="lg">
+            <Button type="submit" variant="default" size="lg">
               Preparar el contacto
             </Button>
             <p className="text-xs text-muted-foreground">

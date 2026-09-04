@@ -9,17 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:scale-[1.03]",
-        glass: "liquid-glass text-foreground hover:scale-[1.03]",
+        default: "bg-primary text-primary-foreground hover:opacity-90 hover:scale-[1.02] shadow-sm",
+        glass: "liquid-glass text-foreground hover:scale-[1.02]",
         ghost: "text-muted-foreground hover:text-foreground",
       },
       size: {
         default: "px-6 py-2.5",
-        lg: "px-14 py-5 text-base",
+        lg: "px-10 py-4 text-base",
       },
     },
     defaultVariants: {
-      variant: "glass",
+      variant: "default",
       size: "default",
     },
   },
