@@ -1,4 +1,5 @@
 import { EyebrowPill, NodeGraphBackground } from "performative-ui"
+import { palette } from "@/theme"
 
 const steps = [
   {
@@ -28,8 +29,8 @@ export function Method() {
         density={42}
         speed={0.22}
         linkDistance={150}
-        colors={["rgba(56, 189, 248, 0.9)", "rgba(129, 140, 248, 0.9)"]}
-        linkColor="rgba(56, 189, 248, 0.28)"
+        colors={palette.nodeColors}
+        linkColor={palette.nodeLink}
         baseOpacity={0.32}
       />
       <div className="relative z-10 max-w-6xl mx-auto">

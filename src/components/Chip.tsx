@@ -1,4 +1,5 @@
 import { EyebrowPill } from "performative-ui"
+import { palette } from "@/theme"
 
 // Everything the page used to say in boxes, wired around one chip.
 const inputs = [
@@ -46,7 +47,7 @@ const vPath = (x1: number, y1: number, x2: number, y2: number, my = (y1 + y2) / 
 
 function Pulse({ d, delay }: { d: string; delay: number }) {
   return (
-    <circle r="3.5" fill="#e0f2fe" style={{ filter: "drop-shadow(0 0 6px #7dd3fc)" }}>
+    <circle r="3.5" style={{ fill: "var(--pulse)", filter: "drop-shadow(0 0 6px var(--pulse-glow))" }}>
       <animateMotion dur="2.6s" repeatCount="indefinite" begin={`${delay}s`} path={d} />
     </circle>
   )
@@ -55,8 +56,8 @@ function Pulse({ d, delay }: { d: string; delay: number }) {
 function Trace({ d, delay }: { d: string; delay: number }) {
   return (
     <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-      <path d={d} stroke="rgba(56,189,248,0.22)" strokeWidth="1.5" />
-      <path d={d} stroke="#7dd3fc" strokeWidth="2" className="trace-flow" opacity="0.85" />
+      <path d={d} style={{ stroke: "var(--trace-dim)" }} strokeWidth="1.5" />
+      <path d={d} style={{ stroke: "var(--trace)" }} strokeWidth="2" className="trace-flow" opacity="0.85" />
       <Pulse d={d} delay={delay} />
     </g>
   )
@@ -78,8 +79,8 @@ function Label({
   const left = anchor === "start" ? x : anchor === "end" ? x - size.w : x - size.w / 2
   return (
     <g>
-      <rect x={left} y={y - size.h / 2} width={size.w} height={size.h} rx="9" fill="rgba(15,23,42,0.85)" stroke="rgba(56,189,248,0.35)" />
-      <text x={left + size.w / 2} y={y + 4.5} textAnchor="middle" fontSize={size === pill ? 13 : 12} fill="#e2e8f0" fontFamily="Inter, system-ui, sans-serif">
+      <rect x={left} y={y - size.h / 2} width={size.w} height={size.h} rx="9" style={{ fill: "var(--label-fill)", stroke: "var(--label-stroke)" }} />
+      <text x={left + size.w / 2} y={y + 4.5} textAnchor="middle" fontSize={size === pill ? 13 : 12} style={{ fill: "var(--label-text)" }} fontFamily="Inter, system-ui, sans-serif">
         {text}
       </text>
     </g>
@@ -90,7 +91,7 @@ export function Chip() {
   return (
     <section id="tesis" className="scroll-mt-20 relative z-10 px-6 py-14">
       <div className="max-w-6xl mx-auto text-center">
-        <EyebrowPill statusColor="#38bdf8">01 · Nuestra tesis</EyebrowPill>
+        <EyebrowPill statusColor={palette.accent}>01 · Nuestra tesis</EyebrowPill>
         <h2 className="mt-3 text-2xl sm:text-3xl text-foreground" style={{ fontFamily: "var(--font-display)" }}>
           Lo que entra desordenado, sale funcionando.
         </h2>
@@ -117,21 +118,21 @@ export function Chip() {
           ))}
 
           {/* pins */}
-          {leftPinY.map((y, i) => <rect key={`lp${i}`} x={chip.x - 14} y={y - 3} width="14" height="6" rx="1.5" fill="#7dd3fc" />)}
-          {rightPinY.map((y, i) => <rect key={`rp${i}`} x={chip.x + chip.w} y={y - 3} width="14" height="6" rx="1.5" fill="#7dd3fc" />)}
-          {topPinX.map((x, i) => <rect key={`tp${i}`} x={x - 3} y={chip.y - 14} width="6" height="14" rx="1.5" fill="#7dd3fc" />)}
-          {bottomPinX.map((x, i) => <rect key={`bp${i}`} x={x - 3} y={chip.y + chip.h} width="6" height="14" rx="1.5" fill="#7dd3fc" />)}
+          {leftPinY.map((y, i) => <rect key={`lp${i}`} x={chip.x - 14} y={y - 3} width="14" height="6" rx="1.5" style={{ fill: "var(--chip-pin)" }} />)}
+          {rightPinY.map((y, i) => <rect key={`rp${i}`} x={chip.x + chip.w} y={y - 3} width="14" height="6" rx="1.5" style={{ fill: "var(--chip-pin)" }} />)}
+          {topPinX.map((x, i) => <rect key={`tp${i}`} x={x - 3} y={chip.y - 14} width="6" height="14" rx="1.5" style={{ fill: "var(--chip-pin)" }} />)}
+          {bottomPinX.map((x, i) => <rect key={`bp${i}`} x={x - 3} y={chip.y + chip.h} width="6" height="14" rx="1.5" style={{ fill: "var(--chip-pin)" }} />)}
 
           {/* chip */}
           <g className="chip-core">
-            <rect x={chip.x} y={chip.y} width={chip.w} height={chip.h} rx="22" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
-            <rect x={chip.x + 12} y={chip.y + 12} width={chip.w - 24} height={chip.h - 24} rx="16" fill="none" stroke="rgba(56,189,248,0.25)" />
-            <circle cx={chip.x + 30} cy={chip.y + 30} r="4" fill="#38bdf8" />
+            <rect x={chip.x} y={chip.y} width={chip.w} height={chip.h} rx="22" style={{ fill: "var(--chip-fill)", stroke: "var(--chip-stroke)" }} strokeWidth="2" />
+            <rect x={chip.x + 12} y={chip.y + 12} width={chip.w - 24} height={chip.h - 24} rx="16" fill="none" style={{ stroke: "var(--chip-inner)" }} />
+            <circle cx={chip.x + 30} cy={chip.y + 30} r="4" style={{ fill: "var(--chip-stroke)" }} />
           </g>
-          <text x={cx} y={cy - 22} textAnchor="middle" fontSize="54" fill="#e0f2fe" fontFamily="var(--font-display)">zero_</text>
-          <text x={cx} y={cy + 8} textAnchor="middle" fontSize="11" letterSpacing="3" fill="#7dd3fc" fontFamily="ui-monospace, monospace">AI INTEGRATION</text>
-          <text x={cx} y={cy + 46} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily="ui-monospace, monospace">48 h → propuesta · 2–6 sem → en marcha</text>
-          <text x={cx} y={cy + 66} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily="ui-monospace, monospace">precio fijo · 1 mes de soporte</text>
+          <text x={cx} y={cy - 22} textAnchor="middle" fontSize="54" style={{ fill: "var(--chip-name)" }} fontFamily="var(--font-display)">zero_</text>
+          <text x={cx} y={cy + 8} textAnchor="middle" fontSize="11" letterSpacing="3" style={{ fill: "var(--chip-sub)" }} fontFamily="ui-monospace, monospace">AI INTEGRATION</text>
+          <text x={cx} y={cy + 46} textAnchor="middle" fontSize="11" style={{ fill: "var(--chip-spec)" }} fontFamily="ui-monospace, monospace">48 h → propuesta · 2–6 sem → en marcha</text>
+          <text x={cx} y={cy + 66} textAnchor="middle" fontSize="11" style={{ fill: "var(--chip-spec)" }} fontFamily="ui-monospace, monospace">precio fijo · 1 mes de soporte</text>
 
           {/* labels */}
           {inputs.map((t, i) => <Label key={t} x={290} y={leftY[i]} text={t} anchor="end" size={{ w: 282, h: 40 }} />)}
@@ -140,8 +141,8 @@ export function Chip() {
           {bottom.map((t, i) => <Label key={t} x={bottomX[i]} y={656} text={t} size={smallPill} />)}
 
           {/* side captions */}
-          <text x={165} y={72} textAnchor="middle" fontSize="10" letterSpacing="2.5" fill="#64748b" fontFamily="ui-monospace, monospace">ENTRA</text>
-          <text x={1010} y={112} textAnchor="middle" fontSize="10" letterSpacing="2.5" fill="#64748b" fontFamily="ui-monospace, monospace">SALE</text>
+          <text x={165} y={72} textAnchor="middle" fontSize="10" letterSpacing="2.5" style={{ fill: "var(--caption)" }} fontFamily="ui-monospace, monospace">ENTRA</text>
+          <text x={1010} y={112} textAnchor="middle" fontSize="10" letterSpacing="2.5" style={{ fill: "var(--caption)" }} fontFamily="ui-monospace, monospace">SALE</text>
         </svg>
       </div>
     </section>

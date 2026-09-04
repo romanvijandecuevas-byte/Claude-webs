@@ -1,23 +1,17 @@
 import { Aurora, EyebrowPill, WordRoll } from "performative-ui"
 import { Button } from "@/components/ui/button"
+import { palette } from "@/theme"
 
 const industries = ["concesionarios", "clínicas", "gestorías", "distribuidoras", "hoteles"]
 
-// Module-level so the reference is stable: Aurora restarts its
-// lava-lamp simulation whenever this array identity changes.
-const heroBlobs = [
-  { color: "rgba(56, 189, 248, 0.28)", x: 18, y: 30, size: 60 },
-  { color: "rgba(34, 211, 238, 0.22)", x: 82, y: 24, size: 52 },
-  { color: "rgba(129, 140, 248, 0.22)", x: 52, y: 86, size: 56 },
-]
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-6 pt-14 pb-10">
-      <Aurora animated blobs={heroBlobs} blur={70} />
+      <Aurora animated blobs={palette.heroBlobs} blur={70} />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-        <EyebrowPill className="animate-fade-rise" statusColor="#38bdf8">
+        <EyebrowPill className="animate-fade-rise" statusColor={palette.accent}>
           Soluciones a medida · precio cerrado
         </EyebrowPill>
 

@@ -43,6 +43,85 @@
   --pui-overlay-bright: rgba(255, 255, 255, 0.12);
   --pui-font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --pui-font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  /* Chip diagram */
+  --chip-fill: #0f172a;
+  --chip-stroke: #38bdf8;
+  --chip-inner: rgba(56, 189, 248, 0.25);
+  --chip-name: #e0f2fe;
+  --chip-sub: #7dd3fc;
+  --chip-spec: #94a3b8;
+  --chip-pin: #7dd3fc;
+  --trace-dim: rgba(56, 189, 248, 0.22);
+  --trace: #7dd3fc;
+  --pulse: #e0f2fe;
+  --pulse-glow: #7dd3fc;
+  --label-fill: rgba(15, 23, 42, 0.85);
+  --label-stroke: rgba(56, 189, 248, 0.35);
+  --label-text: #e2e8f0;
+  --caption: #64748b;
+  --chip-glow-soft: rgba(56, 189, 248, 0.35);
+  --chip-glow-strong: rgba(56, 189, 248, 0.7);
+  --glass-bg: rgba(15, 23, 42, 0.55);
+  --glass-border: rgba(56, 189, 248, 0.14);
+  --glass-shadow: 0 0 0 1px rgba(56, 189, 248, 0.04), 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Light variant: #2196f3 accent on an #e8f5ff ground */
+:root[data-theme="light"] {
+  --background: 206 100% 95%;
+  --foreground: 210 64% 15%;
+  --muted-foreground: 210 30% 40%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 207 94% 88%;
+  --muted: 207 94% 88%;
+  --accent: 207 90% 54%;
+  --border: 207 87% 79%;
+  --input: 207 87% 79%;
+  --ring: 207 90% 54%;
+
+  --pui-bg: #e8f5ff;
+  --pui-bg-elev: #ffffff;
+  --pui-bg-soft: #d9edfd;
+  --pui-border: #c3e3fd;
+  --pui-border-bright: #9acef8;
+  --pui-fg: #0e2440;
+  --pui-fg-dim: #4a6a8a;
+  --pui-fg-mute: #7a9ab8;
+  --pui-grad-from: #2196f3;
+  --pui-grad-mid: #6eb8f5;
+  --pui-grad-to: #9acef8;
+  --pui-warn: #2196f3;
+  --pui-glow: 0 0 24px rgba(33, 150, 243, 0.25);
+  --pui-glow-strong: 0 0 48px rgba(33, 150, 243, 0.28), 0 0 96px rgba(110, 184, 245, 0.18);
+  --pui-glass: rgba(255, 255, 255, 0.85);
+  --pui-glass-deep: rgba(255, 255, 255, 0.78);
+  --pui-glass-soft: rgba(255, 255, 255, 0.6);
+  --pui-overlay: rgba(14, 36, 64, 0.04);
+  --pui-overlay-strong: rgba(14, 36, 64, 0.07);
+  --pui-overlay-bright: rgba(14, 36, 64, 0.12);
+
+  --chip-fill: #ffffff;
+  --chip-stroke: #2196f3;
+  --chip-inner: rgba(33, 150, 243, 0.3);
+  --chip-name: #0e2440;
+  --chip-sub: #2196f3;
+  --chip-spec: #4a6a8a;
+  --chip-pin: #2196f3;
+  --trace-dim: rgba(33, 150, 243, 0.3);
+  --trace: #2196f3;
+  --pulse: #ffffff;
+  --pulse-glow: #2196f3;
+  --label-fill: rgba(255, 255, 255, 0.92);
+  --label-stroke: #9acef8;
+  --label-text: #0e2440;
+  --caption: #5b8fbf;
+  --chip-glow-soft: rgba(33, 150, 243, 0.25);
+  --chip-glow-strong: rgba(33, 150, 243, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(33, 150, 243, 0.18);
+  --glass-shadow: 0 1px 2px rgba(14, 36, 64, 0.04), 0 10px 30px rgba(33, 150, 243, 0.08);
 }
 
 @theme inline {
@@ -86,22 +165,20 @@ h3 {
 @keyframes pui-breathe {
   0%,
   to {
-    box-shadow: 0 0 0 rgba(56, 189, 248, 0);
+    box-shadow: 0 0 0 transparent;
   }
   50% {
-    box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+    box-shadow: var(--pui-glow);
   }
 }
 
 /* Glass surface for the dark board */
 .liquid-glass {
-  background: rgba(15, 23, 42, 0.55);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(56, 189, 248, 0.14);
-  box-shadow:
-    0 0 0 1px rgba(56, 189, 248, 0.04),
-    0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   position: relative;
 }
 
@@ -138,10 +215,10 @@ h3 {
 @keyframes chip-glow {
   0%,
   100% {
-    filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.35));
+    filter: drop-shadow(0 0 14px var(--chip-glow-soft));
   }
   50% {
-    filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.7));
+    filter: drop-shadow(0 0 30px var(--chip-glow-strong));
   }
 }
 .chip-core {
